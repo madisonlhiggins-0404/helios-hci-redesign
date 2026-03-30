@@ -1,13 +1,13 @@
 /* 1. GLOBAL LAYOUT */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a; /* Dark Navy for high contrast */
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #052e16; /* Even Darker Green */
   margin: 0;
-  padding-top: 100px; /* IMPORTANT: This pushes content below the fixed header */
+  padding-top: 100px; /* Prevents overlap with fixed header */
   box-sizing: border-box;
 }
 
-/* 2. THE WHITE HEADER (Stays at the top) */
+/* 2. THE WHITE HEADER */
 .main-header {
   position: fixed;
   top: 0;
@@ -20,20 +20,19 @@ body {
   color: #111827;
   padding: 15px 40px;
   border-bottom: 2px solid #e5e7eb;
-  font-weight: 600;
   z-index: 1000;
   box-sizing: border-box;
 }
 
-/* 3. THE BALLOT BOX (The "Screens") */
+/* 3. THE BALLOT BOX (Screens) */
 .screen {
   display: none;
   max-width: 500px;
-  margin: 20px auto; /* Centers the box with breathing room */
+  margin: 20px auto; 
   padding: 30px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   text-align: center;
 }
 
@@ -41,14 +40,16 @@ body {
   display: block;
 }
 
-/* 4. TEXT & INPUTS */
-h1, h2 {
-  color: #111827;
-  margin-top: 0;
+/* 4. QUESTIONS & INPUTS */
+.question {
+  text-align: left;
+  margin: 20px 0;
 }
 
-p {
-  color: #374151;
+.option {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
 }
 
 .input-box {
@@ -57,34 +58,40 @@ p {
   margin-top: 15px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
-  text-align: center; /* Centers the Voter ID text */
+  text-align: center;
   font-size: 18px;
   box-sizing: border-box;
 }
 
-/* 5. BUTTONS */
+/* 5. GREEN BUTTONS */
 button {
   background-color: #14532d; /* Forest Green */
   color: white;
   border: none;
   padding: 14px;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   width: 100%;
-  transition: background 0.3s ease;
 }
 
 button:hover {
   background-color: #166534;
 }
 
-/* Error message styling */
 .error {
   color: #dc2626;
-  font-size: 14px;
   margin-top: 10px;
   display: none;
+  font-weight: bold;
+}
+
+.review-box {
+  background: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 20px;
 }
