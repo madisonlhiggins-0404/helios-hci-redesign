@@ -24,15 +24,21 @@ body {
   box-sizing: border-box;
 }
 
+.header-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* 3. THE BALLOT BOX (Screens) */
 .screen {
   display: none;
   max-width: 500px;
-  margin: 20px auto; 
+  margin: 20px auto;
   padding: 30px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -94,4 +100,12 @@ button:hover {
   border-radius: 8px;
   text-align: left;
   margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  color: white;
+}
+footer a {
+  color: white;
 }
