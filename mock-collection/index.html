@@ -1,19 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Helios Redesign</title>
+  <meta charset="UTF-8">
+  <title>Voting Prototype</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <h1>Helios Voting Redesign Prototype</h1>
+    <!-- HEADER -->
+    <div class="main-header">
+    <div class="header-left">Helios Voting Booth</div>
+    <div class="header-right">
+      Secure Session <span class="padlock">🔒</span>
+    </div>
+  </div>
 
-  <ul>
-    <li><a href="pages/login.html">Login</a></li>
-    <li><a href="pages/ballot.html">Ballot</a></li>
-    <li><a href="pages/review.html">Review</a></li>
-    <li><a href="pages/confirmation.html">Confirmation</a></li>
-    <li><a href="pages/audit.html">Audit</a></li>
-  </ul>
+  <!-- HOME -->
+  <div id="home" class="screen active">
 
+    <h1>Welcome to a private, secure way to cast your vote.</h1>
+    <h2>A Very Serious Election</h2>
+    <ul class="instructions">
+      <li>Your vote is anonymous and secure.</li>
+        <li>You may review and edit your ballot before submission.</li>
+      <li>Once submitted, your vote cannot be changed.</li>
+    </ul>
+
+    <input type="text" id="voter-id" placeholder="Enter your Voter ID" class="input-box">
+    <p id="id-error" class="error"></p>
+
+    <button onclick="startVoting()">Start Voting</button>
+  </div>
+
+  <!-- BALLOT -->
+  <div id="ballot" class="screen">
+ 
+    <h2>Ballot</h2>
+
+    <div class="question">
+      <p><strong>1. Choose one option:</strong></p>
+      <label class="option"><input type="radio" name="q1" value="Option A"> Option A</label>
+      <label class="option"><input type="radio" name="q1" value="Option B"> Option B</label>
+    </div>
+
+    <div class="question">
+      <p><strong>2. Select all that apply:</strong></p>
+      <label class="option"><input type="checkbox" name="q2" value="Choice 1"> Choice 1</label>
+      <label class="option"><input type="checkbox" name="q2" value="Choice 2"> Choice 2</label>
+      <label class="option"><input type="checkbox" name="q2" value="Choice 3"> Choice 3</label>
+    </div>
+
+    <p id="error-message" class="error"></p>
+
+    <button onclick="saveBallot()">Next</button>
+  </div>
+
+  <!-- REVIEW -->
+  <div id="review" class="screen">
+    <h2>Review Your Ballot</h2>
+    <div class="review-box">
+      <p id="review-q1"></p>
+      <p id="review-q2"></p>
+    </div>
+
+    <button onclick="goTo('ballot')">Edit</button>
+    <button onclick="submitBallot()">Submit</button>
+  </div>
+
+  <!-- SUBMISSION -->
+  <div id="submission" class="screen">
+    <h2>Ballot Submitted</h2>
+    <p id="confirmation"></p>
+    <button onclick="goTo('home')">Return Home</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
