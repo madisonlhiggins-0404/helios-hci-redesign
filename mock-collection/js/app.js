@@ -1,0 +1,30 @@
+const ballotData = {
+  question1: "",
+  question2: []
+};
+
+// Navigation
+function goTo(screenId) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(screenId).classList.add("active");
+}
+
+// Start voting with ID check
+function startVoting() {
+  const idInput = document.getElementById("voter-id").value.trim();
+  const error = document.getElementById("id-error");
+
+  if (!idInput) {
+    error.innerText = "Please enter your Voter ID.";
+    error.style.display = "block";
+    return;
+  }
+
+  let usedIDs = JSON.parse(localStorage.getItem("usedIDs")) || [];
+
+  if (usedIDs.includes(idInput)) {
+    error.innerText = "This Voter ID has already been used.";
+    error.style.display = "block";
+    return;
+  }
+}
